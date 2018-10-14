@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  options {
-    ansiColor('xterm')
-  }
   tools{
     maven 'maven-3.5.4'
     jdk 'jdk-1.8'
@@ -19,12 +16,14 @@ pipeline {
       }
     }
     stage ('Unit Tests'){
-      steps{
-        sh 'mvn test'
-      }
-      post {
-        success {
-          junit 'target/surefire-reports/**/*.xml'
+      ansiColor('xterm') {
+        steps{
+          sh 'mvn test'
+        }
+        post {
+          success {
+            junit 'target/surefire-reports/**/*.xml'
+          }
         }
       }
     }
