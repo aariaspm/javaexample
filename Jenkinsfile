@@ -16,14 +16,14 @@ pipeline {
       }
     }
     stage ('Unit Tests'){
-      ansiColor('xterm') {
-        steps{
+      steps{
+        ansiColor('xterm') {
           sh 'mvn test'
         }
-        post {
-          success {
-            junit 'target/surefire-reports/**/*.xml'
-          }
+      }
+      post {
+        success {
+          junit 'target/surefire-reports/**/*.xml'
         }
       }
     }
