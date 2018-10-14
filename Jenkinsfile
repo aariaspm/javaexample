@@ -1,7 +1,7 @@
 pipeline {
   agent any
   options {
-    ansicolor('xterm')
+    ansiColor('xterm')
   }
   tools{
     maven 'maven-3.5.4'
