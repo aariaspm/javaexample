@@ -20,7 +20,7 @@ public class CalculatorTest extends TestCase {
 
   public void testAdd() {
     int result = calculator.add(num1, num2);
-    assertEquals(15, result);
+    assertEquals(5, result);
   }
 
   public void testSubstraction() {
