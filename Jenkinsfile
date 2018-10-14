@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  options {
+    ansiColor('gnome-terminal')
+  }
   tools{
     maven 'maven-3.5.4'
     jdk 'jdk-1.8'
@@ -17,9 +20,7 @@ pipeline {
     }
     stage ('Unit Tests'){
       steps{
-        ansiColor('xterm') {
-          sh 'mvn test'
-        }
+        sh 'mvn test'
       }
       post {
         success {
